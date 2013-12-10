@@ -1,1 +1,27 @@
-<p>List your employees here</p>
+<h1>List your employees here</h1>
+
+
+<% @employees.each do |employee| %>
+
+  <% if employee.class == Owner %>
+   <span class='owner'><%= "#{employee.name} - #{employee.class}" %></span><br />
+         <%= "Salary: $#{employee.gross_salary}" %><br />
+         <%= "Net Pay: $#{employee.monthly_pay}"%><br />
+
+  <% elsif employee.class == CommissionSalesPerson || employee.class == QuotaSalesPerson %>
+
+  <span class='salesperson'><%= "#{employee.name} - #{employee.class}" %></span><br />
+          <%= "Salary: $#{employee.gross_salary}" %><br />
+          <%= "Net Pay: $#{employee.monthly_pay}"%><br />
+          <%= "Sales: $#{employee.commission_sales}"%><br />
+  <br />
+
+  <% else %>
+
+  <%= " #{employee.name} - #{employee.class}" %><br />
+  <%= "Salary: $#{employee.gross_salary}" %> <br />
+  <%= "Net Pay: $#{employee.monthly_pay}"%> <br />
+  <br />
+
+  <% end %>
+<% end %>

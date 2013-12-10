@@ -1,1 +1,6 @@
-<p>List your sales here</p>
+<h1>List your sales here</h1>
+
+<% @sales.each do |sale| %>
+<%= "#{sale.last_name}" %><br />
+<%= "#{sale.amount}" %><br /><br />
+<% end %>
