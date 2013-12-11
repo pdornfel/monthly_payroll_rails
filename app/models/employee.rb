@@ -23,8 +23,8 @@ class Employee
         @employees << Designer.new(row['Name'], row['Base Salary'])
       elsif row['Employee Type'] == 'commission'
         @employees << CommissionSalesPerson.new(row['Name'], row['Base Salary'], row['Commission'])
-      # elsif row['Employee Type'] == 'quota'
-      #   @employees << QuotaSalesPerson.new(row['Name'], row['Base Salary'], row['Quota Level'], row['Bonus'])
+      elsif row['Employee Type'] == 'quota'
+        @employees << QuotaSalesPerson.new(row['Name'], row['Base Salary'], row['Quota Level'], row['Bonus'])
       end
     end
     @employees

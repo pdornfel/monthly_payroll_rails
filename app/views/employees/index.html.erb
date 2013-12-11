@@ -4,24 +4,26 @@
 <% @employees.each do |employee| %>
 
   <% if employee.class == Owner %>
-   <span class='owner'><%= "#{employee.name} - #{employee.class}" %></span><br />
-         <%= "Salary: $#{employee.gross_salary}" %><br />
-         <%= "Net Pay: $#{employee.monthly_pay}"%><br />
+   <span class='owner'><%= "#{employee.name} - #{employee.class}" %></span><br/>
+         <%= "Salary: $#{employee.gross_salary}" %><br/>
+         <%= "Net Pay: $#{employee.monthly_pay}"%><br/>
 
-  <% elsif employee.class == CommissionSalesPerson || employee.class == QuotaSalesPerson %>
+  <% elsif employee.class == CommissionSalesPerson %>
+  <span class='salesperson'><%= "#{employee.name} - #{employee.class}" %></span><br/>
+          <%= "Salary: $#{employee.gross_salary}" %><br/>
+          <%= "Net Pay: $#{employee.monthly_pay}"%><br/><br/>
 
-  <span class='salesperson'><%= "#{employee.name} - #{employee.class}" %></span><br />
-          <%= "Salary: $#{employee.gross_salary}" %><br />
-          <%= "Net Pay: $#{employee.monthly_pay}"%><br />
-          <%= "Sales: $#{employee.commission_sales}"%><br />
-  <br />
+  <% elsif employee.class == QuotaSalesPerson %>
+    <span class='salesperson'><%= "#{employee.name} - #{employee.class}" %></span><br/>
+          <%= "Salary: $#{employee.gross_salary}" %><br/>
+          <%= "Bonus: $#{employee.bonus}" %><br/>
+          <%= "Net Pay: $#{employee.monthly_pay}" %><br/>
+    <br/>
 
   <% else %>
-
-  <%= " #{employee.name} - #{employee.class}" %><br />
-  <%= "Salary: $#{employee.gross_salary}" %> <br />
-  <%= "Net Pay: $#{employee.monthly_pay}"%> <br />
-  <br />
+  <%= " #{employee.name} - #{employee.class}" %><br/>
+  <%= "Salary: $#{employee.gross_salary}" %> <br/>
+  <%= "Net Pay: $#{employee.monthly_pay}"%> <br/><br />
 
   <% end %>
 <% end %>

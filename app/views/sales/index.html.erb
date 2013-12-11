@@ -1,6 +1,17 @@
 <h1>List your sales here</h1>
 
-<% @sales.each do |sale| %>
-<%= "#{sale.last_name}" %><br />
-<%= "#{sale.amount}" %><br /><br />
+<% @employees.each do |employee| %>
+  <% if employee.class == CommissionSalesPerson || employee.class == QuotaSalesPerson %>
+    <span class='sales'><%= "#{employee.name}" %><br/>
+    <%= "Total Sales: $#{employee.total_sales_dollars}" %><br/>
+    <%= "Commission Dollars Earned: $#{employee.commission_dollars}" %></span><br/>
+
+      <% employee.commission_sales.each do |sale| %>
+      <%= "$#{sale.amount}" %><br />
+    <% end %>
+
+
+    <br/>
+  <% end %>
 <% end %>
+
